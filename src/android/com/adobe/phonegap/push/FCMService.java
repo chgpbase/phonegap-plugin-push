@@ -691,12 +691,15 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
         }
       }
     } else if (STYLE_PICTURE.equals(style)) {
-      setNotification(notId, "");
+      setNotification(notId, message);
 
       NotificationCompat.BigPictureStyle bigPicture = new NotificationCompat.BigPictureStyle();
       bigPicture.bigPicture(getBitmapFromURL(extras.getString(PICTURE)));
       bigPicture.setBigContentTitle(fromHtml(extras.getString(TITLE)));
-      bigPicture.setSummaryText(fromHtml(extras.getString(SUMMARY_TEXT)));
+       if (extras.getString(SUMMARY_TEXT) != null) 
+            bigPicture.setSummaryText(fromHtml(extras.getString(SUMMARY_TEXT)));
+         else 
+            bigPicture.setSummaryText(fromHtml(message));
 
       mBuilder.setContentTitle(fromHtml(extras.getString(TITLE)));
       mBuilder.setContentText(fromHtml(message));
@@ -716,7 +719,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
         String summaryText = extras.getString(SUMMARY_TEXT);
         if (summaryText != null) {
           bigText.setSummaryText(fromHtml(summaryText));
-        }
+        } else bigText.setSummaryText(fromHtml(message));
 
         mBuilder.setStyle(bigText);
       }
