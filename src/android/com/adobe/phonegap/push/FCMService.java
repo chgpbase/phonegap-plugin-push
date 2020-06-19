@@ -493,7 +493,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
     /*
      * Notification message
      */
-    setNotificationMessage(notId, extras, mBuilder);
+  //  setNotificationMessage(notId, extras, mBuilder);
 
     /*
      * Notification count
