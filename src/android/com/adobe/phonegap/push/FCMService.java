@@ -203,7 +203,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
       return COUNT;
     } else if (key.equals(SOUNDNAME) || key.equals(TWILIO_SOUND)) {
       return SOUND;
-    } else if (key.equals(AWS_PINPOINT_PICTURE)) {
+    } else if (key.equals(AWS_PINPOINT_PICTURE) || key.equals(PICTURE)) {
       newExtras.putString(STYLE, STYLE_PICTURE);
       return PICTURE;
     } else if (key.startsWith(GCM_NOTIFICATION)) {
@@ -690,8 +690,8 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
           mBuilder.setStyle(bigText);
         }
       }
-    } else if (STYLE_PICTURE.equals(style) || (extras.getString(PICTURE)!=null && "".equals(extras.getString(PICTURE)) )) {
-      setNotification(notId, message);
+    } else if (STYLE_PICTURE.equals(style)) {
+      setNotification(notId, "");
 
       NotificationCompat.BigPictureStyle bigPicture = new NotificationCompat.BigPictureStyle();
       bigPicture.bigPicture(getBitmapFromURL(extras.getString(PICTURE)));
