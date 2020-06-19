@@ -347,7 +347,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
         extras.putString(TITLE, getAppName(this));
       }
 
-      createNotification(context, extras);
+    //  createNotification(context, extras);
     }
 
     if (!PushPlugin.isActive() && "1".equals(forceStart)) {
@@ -493,7 +493,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
     /*
      * Notification message
      */
-  //  setNotificationMessage(notId, extras, mBuilder);
+    setNotificationMessage(notId, extras, mBuilder);
 
     /*
      * Notification count
