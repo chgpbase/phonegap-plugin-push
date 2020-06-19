@@ -865,18 +865,18 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
   private void setNotificationSmallIcon(Context context, Bundle extras, String packageName, Resources resources,
       NotificationCompat.Builder mBuilder, String localIcon) {
     int iconId = 0;
-    String icon = extras.getString(ICON);
-    if (icon != null && !"".equals(icon)) {
-      iconId = getImageId(resources, icon, packageName);
-      Log.d(LOG_TAG, "using icon from plugin options");
-    } else if (localIcon != null && !"".equals(localIcon)) {
-      iconId = getImageId(resources, localIcon, packageName);
-      Log.d(LOG_TAG, "using icon from plugin options");
-    }
-    if (iconId == 0) {
+   // String icon = extras.getString(ICON);
+   // if (icon != null && !"".equals(icon)) {
+   ///   iconId = getImageId(resources, icon, packageName);
+   //   Log.d(LOG_TAG, "using icon from plugin options");
+   // } else if (localIcon != null && !"".equals(localIcon)) {
+   //   iconId = getImageId(resources, localIcon, packageName);
+   //   Log.d(LOG_TAG, "using icon from plugin options");
+   // }
+   // if (iconId == 0) {
       Log.d(LOG_TAG, "no icon resource found - using application icon");
       iconId = context.getApplicationInfo().icon;
-    }
+    //}
     mBuilder.setSmallIcon(iconId);
   }
 
