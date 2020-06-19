@@ -660,6 +660,13 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
   private void setNotificationMessage(int notId, Bundle extras, NotificationCompat.Builder mBuilder) {
     String message = extras.getString(MESSAGE);
     String style = extras.getString(STYLE, STYLE_TEXT);
+    Log.d(LOG_TAG, "D: setNotificationMessage");
+        Log.w(LOG_TAG, "W: setNotificationMessage");
+    Log.i(LOG_TAG, "I: setNotificationMessage");
+    Log.v(LOG_TAG, "V: setNotificationMessage");
+
+            Log.e(LOG_TAG, "E: setNotificationMessage");
+
     if (STYLE_INBOX.equals(style)) {
       setNotification(notId, message);
 
